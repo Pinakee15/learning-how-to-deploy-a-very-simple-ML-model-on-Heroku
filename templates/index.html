@@ -4,29 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <style>
+            .box {
+            width: 50%;
+            margin: 0 auto;
+            padding: 140px;
+            background: #f0e68c;
+            position: absolute;
+            top:200px;
+            bottom: 200px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding-top: 80px;
+            color: black;
+            font-size: 20px;
+            padding-left: 70px;
+            font-weight: bold;
+	      }
+
+   </style>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
- <div class="login">
-	<h1>Predict Salary Analysis</h1>
+
+ <div class="login" >
+	<h1 style="text-align: center ; color: coral">Hey! Lets predict the salary </h1>
 
      <!-- Main Input For Receiving Query to our ML -->
+ <div class="box">
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <label for="experience">Experience</label>
+    	<input type="text" name="experience" placeholder="Experience Between 0 to 20" required="required" class="form-control" />
+        <br>
+        <label for="test_score">Test Score</label>
+        <input type="text" name="test_score" placeholder="Test score Between 0 to 10" required="required" class="form-control" />
+        <br>
+        <label for="Interview_score">Interview Score</label>
+		<input type="text" name="interview_score" placeholder="Interview score Between 0 to 10" required="required" class="form-control" />
+        <br>
+        <button type="submit" class="btn btn-primary">Predict</button>
     </form>
+     <br>
+     {{ prediction_text }}
+ </div>
 
    <br>
    <br>
-   {{ prediction_text }}
+
 
  </div>
 
